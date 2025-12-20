@@ -1,8 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int sequence(int n, vector<int> &a) {
-    
+vector<int> sequence(int n, vector<int> &a) {
+    vector<int> b;
+    b.push_back(a[0]);
+    for(int i=1;i<n;i++) {
+        if(a[i] < a[i-1]) {
+            b.push_back(a[i]);
+            b.push_back(a[i]);
+        } else {
+            b.push_back(a[i]);
+        }
+    }
+    return b;
 }
 
 int main() {
@@ -20,7 +30,12 @@ int main() {
         for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
-        cout << sequence(n,a) << endl;
+        vector<int> ans = sequence(n,a);
+        cout << ans.size() << endl;
+        for(int i=0;i<ans.size();i++) {
+            cout << ans[i] << " ";
+        }
+        cout << endl;
 
         
     }
