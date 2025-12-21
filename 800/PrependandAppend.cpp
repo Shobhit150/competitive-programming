@@ -1,18 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> sequence(int n, vector<int> &a) {
-    vector<int> b;
-    b.push_back(a[0]);
-    for(int i=1;i<n;i++) {
-        if(a[i] < a[i-1]) {
-            b.push_back(a[i]);
-            b.push_back(a[i]);
-        } else {
-            b.push_back(a[i]);
-        }
+int prepend(int n, string &s) {
+    int l = 0;
+    int r = n-1;
+    while(r>l && ((s[l]=='1' && s[r]=='0') || (s[l]=='0' && s[r]=='1'))) {
+        r--;
+        l++;
     }
-    return b;
+    
+    return (r-l) +1;
 }
 
 int main() {
@@ -29,9 +26,7 @@ int main() {
         string s;
         cin >> s;
 
-        
-
-        
+        cout << prepend(n,s) << endl;
     }
 
     return 0;
