@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int chemist(int n, int k, string s) {
+int chemist(int n, int k, string &s) {
     unordered_map<char,int> m;
     for(char &c: s) {
         m[c]++;

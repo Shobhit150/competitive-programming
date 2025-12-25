@@ -3,16 +3,18 @@ using namespace std;
 
 int balanced(int n, int k, vector<int> &a) {
     sort(a.begin(), a.end());
-    int j=0;
-    int ans = 0;
+    int count = 1;
+    int ans = 1;
     for(int i=1;i<n;i++) {
-        while(j<i && ((a[i] - a[j]) > k)) {
-            j++;
+        cout << a[i] << " " << a[i]-a[i-1] << " " << i << endl;
+        if((a[i]-a[i-1]) > k) {
+            count = 1;
+        } else {
+            count += 1;
+            ans = max(ans, count);
         }
-        ans = max(ans, i-j+1);
     }
-    return ans;
-
+    return n - ans;
 }
 
 int main() {
@@ -21,7 +23,6 @@ int main() {
 
     int t;
     cin >> t;
-
     while (t--) {
         int n, k;
         cin >> n >> k;
