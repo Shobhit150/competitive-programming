@@ -9,16 +9,9 @@ typedef long double ld;
 #define mp make_pair
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
-#define sz(x) (int)(x).size()
 
 const ll MOD = 1e9 + 7;
 const ll INF = 1e18;
-
-#ifndef ONLINE_JUDGE
-#define debug(x) cerr << #x << " = " << (x) << endl;
-#else
-#define debug(x)
-#endif
 
 ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
 ll lcm(ll a, ll b) { return (a / gcd(a, b)) * b; }
@@ -28,39 +21,28 @@ ll mod_sub(ll a, ll b) { return (a % MOD - b % MOD + MOD) % MOD; }
 ll mod_mul(ll a, ll b) { return (a % MOD * b % MOD) % MOD; }
 
 void solve() {
-    int n;
-    cin >> n;
-    vector<int> a(n);
+    int n,k;
+    string s;
+    cin >> n >> k;
+    cin >> s;
+
+    int countW = 0;
+    int j = 0;
+    int mini = INT_MAX;
     for(int i=0;i<n;i++) {
-        cin >> a[i];
-    }
-    vector<int> p(n);
-
-    for(int i=0;i<n;) {
-        int j=i;
-        while(j<n && a[j] == a[i]) j++;
-        int len = j-i;
-        if(len == 1) {
-            cout << "-1\n";
-            return;
+        if(s[i] == 'W') {
+            countW++;
         }
-
-        for(int k=i;k<j;k++) {
-            if(k==j-1) {
-                p[k] = i;
-            } else {
-                p[k] = k+1;
-            }
+        int len = i-j+1;
+        if(len > k) {
+            
+            if(s[j] == 'W') countW--;
+            j++;
         }
-        i=j;
+        if(len == k) mini = min(mini, countW);
+        // cout << (i-j+1) << " " << k << " " << countW << "\n";
     }
-
-    
-    for(int i=0;i<n;i++) {
-        cout << p[i]+1 << " ";
-    }
-    cout << "\n";
-
+    cout << mini << "\n";
 }
 
 int main() {
