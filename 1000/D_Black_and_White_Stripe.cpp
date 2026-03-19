@@ -33,13 +33,11 @@ void solve() {
         if(s[i] == 'W') {
             countW++;
         }
-        int len = i-j+1;
-        if(len > k) {
-            
+        if(i - j + 1 > k) {
             if(s[j] == 'W') countW--;
             j++;
         }
-        if(len == k) mini = min(mini, countW);
+        if(i - j + 1 == k) mini = min(mini, countW);
         // cout << (i-j+1) << " " << k << " " << countW << "\n";
     }
     cout << mini << "\n";

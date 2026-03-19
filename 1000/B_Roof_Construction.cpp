@@ -22,7 +22,23 @@ ll mod_sub(ll a, ll b) { return (a % MOD - b % MOD + MOD) % MOD; }
 ll mod_mul(ll a, ll b) { return (a % MOD * b % MOD) % MOD; }
 
 void solve() {
+    int n;
+    cin >> n;
+    int n2 = n-1;
+    int i = 0;
     
+    while(n2) {
+        n2 >>= 1;
+        i++;   
+    }
+    int p = (1<<i-1);
+    for(int i=p-1; i>=0;i--) {
+        cout << i << " ";
+    }
+    for(int i=p;i<n;i++) {
+        cout << i << " "; 
+    }
+    cout << "\n";
 }
 
 int main() {
