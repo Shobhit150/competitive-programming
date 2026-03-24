@@ -24,7 +24,30 @@ ll mod_mul(ll a, ll b) { return (a % MOD * b % MOD) % MOD; }
 void solve() {
     int n,m;
     cin >> n >> m;
-    
+
+    int negtaiveCount = 0;
+    int negativeLargestNumber = INT_MAX;
+    int sumi = 0;
+
+    vector<vector<int>> mat(n, vector<int>(m, 0));
+
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<m;j++) {
+            cin >> mat[i][j];
+            sumi += abs(mat[i][j]);
+            if(mat[i][j] < 0) {
+                negtaiveCount++;
+            }
+            negativeLargestNumber = min(negativeLargestNumber, abs(mat[i][j]));
+        }
+    }
+    // cout << negtaiveCount << " " << negativeLargestNumber << " " << sumi << "\n";
+    if(negtaiveCount%2 == 0) {
+        cout << sumi << "\n";
+    } else {
+        cout << sumi - (2*negativeLargestNumber) << "\n";
+    }
+
 }
 
 int main() {
