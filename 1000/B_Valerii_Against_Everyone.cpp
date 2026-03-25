@@ -22,6 +22,12 @@ ll mod_sub(ll a, ll b) { return (a % MOD - b % MOD + MOD) % MOD; }
 ll mod_mul(ll a, ll b) { return (a % MOD * b % MOD) % MOD; }
 
 void solve() {
+    int n;
+    vector<int> a(n);
+    for(int i=0;i<n;i++) {
+        cin >> a[i];
+    }
+
     
 }
 
@@ -29,7 +35,7 @@ int main() {
     fastio
 
     int t = 1;
-    // cin >> t;
+    cin >> t;
 
     while (t--) {
         solve();
