@@ -23,12 +23,19 @@ ll mod_mul(ll a, ll b) { return (a % MOD * b % MOD) % MOD; }
 
 void solve() {
     int n;
-    vector<int> a(n);
+    cin >> n;
+    unordered_set<int> s;
     for(int i=0;i<n;i++) {
-        cin >> a[i];
+        int a;
+        cin >> a;
+        if(s.count(a)) {
+            cout << "YES\n";
+            return;
+        } else {
+            s.insert(a);
+        }
     }
-
-    
+    cout << "NO\n";
 }
 
 int main() {
