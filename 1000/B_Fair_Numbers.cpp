@@ -21,10 +21,27 @@ ll mod_add(ll a, ll b) { return (a % MOD + b % MOD) % MOD; }
 ll mod_sub(ll a, ll b) { return (a % MOD - b % MOD + MOD) % MOD; }
 ll mod_mul(ll a, ll b) { return (a % MOD * b % MOD) % MOD; }
 
+bool valid(ll n) {
+    ll n2 = n;
+    while(n2) {
+        int rem = n2%10;
+        // cout << rem << " ";
+        if(rem != 0) {
+            if(n%rem != 0) return false;
+        }
+        n2 /= 10;
+    }
+    return true;
+}
+
 void solve() {
-    int x,y,k;
-    cin >> x >> y >> k;
-    
+    ll n;
+    cin >> n;
+    while(!valid(n)) {
+        n++;
+    }
+
+    cout << n << "\n";
 }
 
 int main() {
