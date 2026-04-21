@@ -33,6 +33,8 @@ void solve() {
         a[i] = {b, i};
 
 
+
+
         
     }
     sort(a.begin(), a.end(), greater<int>());
