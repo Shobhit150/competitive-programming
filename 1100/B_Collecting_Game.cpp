@@ -30,12 +30,7 @@ void solve() {
         int b;
         cin >> b;
         totalSum += b;
-        a[i] = {b, i};
-
-
-
-
-        
+        a[i] = {b, i}
     }
     sort(a.begin(), a.end(), greater<int>());
 
