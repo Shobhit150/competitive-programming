@@ -24,23 +24,25 @@ ll mod_mul(ll a, ll b) { return (a % MOD * b % MOD) % MOD; }
 void solve() {
     int n;
     cin >> n;
+    vector<int> preSum(n);
     vector<pair<int,int>> a(n);
-    int totalSum = 0;
     for(int i=0;i<n;i++) {
         int b;
         cin >> b;
-        totalSum += b;
-        a[i] = {b, i}
+        a[i] = {b, i};
     }
-    sort(a.begin(), a.end(), greater<int>());
 
-    vector<int> ans(n);
-    int i = n-1;
+    sort(a.begin(), a.end());
 
-    int totalSum = 0;
 
-    for(int j=0;j<n;j++) {
-        if()
+    // for(int i=0;i<n;i++) {
+    //     cout << a[i].first << " " << a[i].second << endl;
+    // }
+
+    int pre = 0;
+
+    for(int i=0;i<n;i++) {
+
     }
 }
 
